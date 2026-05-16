@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import joblib
 
-# Load Model
+
 model = joblib.load('C:\\Users\\chaar\\OneDrive\\Desktop\\Sales_Forecasting_Project\\models\\sales_model.pkl')
 
 st.title("AI Sales Prediction")
@@ -36,7 +36,7 @@ if st.button("Predict Sales"):
         f"Predicted Sales: {predicted_value:.2f}"
     )
 
-    # Business Insight
+   
     if predicted_value > 500:
         st.info(
             "High sales expected. Increase inventory levels."

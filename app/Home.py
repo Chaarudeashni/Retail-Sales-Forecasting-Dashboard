@@ -2,7 +2,6 @@ import streamlit as st
 
 st.set_page_config(
     page_title="Retail Sales Forecasting",
-    page_icon="📊",
     layout="wide"
 )
 

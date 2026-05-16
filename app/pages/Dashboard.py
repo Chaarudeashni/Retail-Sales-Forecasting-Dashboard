@@ -5,9 +5,6 @@ import matplotlib.pyplot as plt
 import sqlite3
 import joblib
 
-# =========================
-# MATPLOTLIB DARK THEME
-# =========================
 plt.rcParams['figure.facecolor'] = '#0f172a'
 plt.rcParams['axes.facecolor'] = '#0f172a'
 plt.rcParams['text.color'] = 'white'
@@ -16,17 +13,11 @@ plt.rcParams['xtick.color'] = 'white'
 plt.rcParams['ytick.color'] = 'white'
 plt.rcParams['axes.edgecolor'] = 'white'
 
-# =========================
-# PAGE CONFIG
-# =========================
 st.set_page_config(
     page_title="Advanced Retail Sales Dashboard",
     layout="wide"
 )
 
-# =========================
-# CUSTOM CSS
-# =========================
 st.markdown("""
 <style>
 
@@ -92,31 +83,19 @@ html, body, [class*="css"]  {
 </style>
 """, unsafe_allow_html=True)
 
-# =========================
-# LOAD DATASET
-# =========================
 df = pd.read_csv(
    "C:\\Users\\chaar\\OneDrive\\Desktop\\Sales_Forecasting_Project\\data\\train.csv"
 )
 
-# =========================
-# DATE CONVERSION
-# =========================
 df['Order Date'] = pd.to_datetime(
     df['Order Date'],
     dayfirst=True
 )
 
-# =========================
-# FEATURE ENGINEERING
-# =========================
 df['Year'] = df['Order Date'].dt.year
 df['Month'] = df['Order Date'].dt.month
 df['Day'] = df['Order Date'].dt.day
 
-# =========================
-# SQLITE CONNECTION
-# =========================
 conn = sqlite3.connect('retail_sales.db')
 
 df.to_sql(
@@ -126,16 +105,10 @@ df.to_sql(
     index=False
 )
 
-# =========================
-# LOAD MODEL
-# =========================
 model = joblib.load(
     r'C:\Users\chaar\OneDrive\Desktop\Sales_Forecasting_Project\models\sales_model.pkl'
 )
 
-# =========================
-# DASHBOARD HEADER
-# =========================
 st.markdown(
     '<p class="title">Retail Sales Forecasting Dashboard</p>',
     unsafe_allow_html=True
@@ -148,9 +121,6 @@ st.markdown(
 
 st.divider()
 
-# =========================
-# KPI CARDS
-# =========================
 st.markdown(
     '<p class="section-title">Business Overview</p>',
     unsafe_allow_html=True
@@ -190,16 +160,11 @@ with col4:
     </div>
     """, unsafe_allow_html=True)
 
-# =========================
-# CHARTS SECTION
-# =========================
 chart1, chart2, chart3 = st.columns(3)
 
 chart_bg = '#0f172a'
 
-# -------------------------
-# CATEGORY SALES
-# -------------------------
+
 with chart1:
 
     st.markdown(
@@ -230,9 +195,6 @@ with chart1:
 
     st.pyplot(fig1)
 
-# -------------------------
-# REGION SALES
-# -------------------------
 with chart2:
 
     st.markdown(
@@ -262,9 +224,7 @@ with chart2:
 
     st.pyplot(fig2)
 
-# -------------------------
-# SEGMENT SALES
-# -------------------------
+
 with chart3:
 
     st.markdown(
@@ -295,14 +255,9 @@ with chart3:
 
     st.pyplot(fig3)
 
-# =========================
-# ADVANCED ANALYTICS
-# =========================
 colA, colB, colC = st.columns(3)
 
-# -------------------------
-# MONTHLY SALES
-# -------------------------
+
 with colA:
 
     st.markdown(
@@ -336,9 +291,6 @@ with colA:
 
     st.pyplot(fig4)
 
-# -------------------------
-# TOP STATES
-# -------------------------
 with colB:
 
     st.markdown(
@@ -376,9 +328,7 @@ with colB:
 
     st.pyplot(fig5)
 
-# -------------------------
-# TOP PRODUCTS
-# -------------------------
+
 with colC:
 
     st.markdown(
