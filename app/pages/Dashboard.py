@@ -96,7 +96,7 @@ df['Year'] = df['Order Date'].dt.year
 df['Month'] = df['Order Date'].dt.month
 df['Day'] = df['Order Date'].dt.day
 
-conn = sqlite3.connect('model/retail_sales.db')
+conn = sqlite3.connect(':memory:')
 
 df.to_sql(
     'retail_sales',
@@ -104,7 +104,6 @@ df.to_sql(
     if_exists='replace',
     index=False
 )
-
 model = joblib.load(
     r'sales_model.pkl'
 )
