@@ -1,9 +1,13 @@
 import streamlit as st
 import pandas as pd
 import joblib
+from pathlib import Path
 
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
-model = joblib.load('../models/sales_model.pkl')
+model_path = BASE_DIR / "models" / "sales_model.pkl"
+
+model = joblib.load(model_path)
 
 st.title("AI Sales Prediction")
 
