@@ -11,12 +11,11 @@ st.set_page_config(
     layout="wide"
 )
 
-BASE_DIR = Path(__file__).resolve().parent.parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 data_path = BASE_DIR / "data" / "train.csv"
 
 model_path = BASE_DIR / "models" / "sales_model.pkl"
-
 df = pd.read_csv(data_path)
 
 model = joblib.load(model_path)
