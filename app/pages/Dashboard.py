@@ -106,7 +106,7 @@ df.to_sql(
 )
 
 model = joblib.load(
-    r'C:\Users\chaar\OneDrive\Desktop\Sales_Forecasting_Project\models\sales_model.pkl'
+    r'sales_model.pkl'
 )
 
 st.markdown(
