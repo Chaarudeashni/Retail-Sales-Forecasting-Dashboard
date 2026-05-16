@@ -84,7 +84,7 @@ html, body, [class*="css"]  {
 """, unsafe_allow_html=True)
 
 df = pd.read_csv(
-   "C:\\Users\\chaar\\OneDrive\\Desktop\\Sales_Forecasting_Project\\data\\train.csv"
+   "data/train.csv"
 )
 
 df['Order Date'] = pd.to_datetime(
@@ -96,7 +96,7 @@ df['Year'] = df['Order Date'].dt.year
 df['Month'] = df['Order Date'].dt.month
 df['Day'] = df['Order Date'].dt.day
 
-conn = sqlite3.connect('retail_sales.db')
+conn = sqlite3.connect('model/retail_sales.db')
 
 df.to_sql(
     'retail_sales',
