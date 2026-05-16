@@ -4,19 +4,22 @@ import numpy as np
 import matplotlib.pyplot as plt
 import sqlite3
 import joblib
-
-plt.rcParams['figure.facecolor'] = '#0f172a'
-plt.rcParams['axes.facecolor'] = '#0f172a'
-plt.rcParams['text.color'] = 'white'
-plt.rcParams['axes.labelcolor'] = 'white'
-plt.rcParams['xtick.color'] = 'white'
-plt.rcParams['ytick.color'] = 'white'
-plt.rcParams['axes.edgecolor'] = 'white'
+from pathlib import Path
 
 st.set_page_config(
     page_title="Advanced Retail Sales Dashboard",
     layout="wide"
 )
+
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
+
+data_path = BASE_DIR / "data" / "train.csv"
+
+model_path = BASE_DIR / "models" / "sales_model.pkl"
+
+df = pd.read_csv(data_path)
+
+model = joblib.load(model_path)
 
 st.markdown("""
 <style>
@@ -83,9 +86,7 @@ html, body, [class*="css"]  {
 </style>
 """, unsafe_allow_html=True)
 
-df = pd.read_csv(
-   "data/train.csv"
-)
+df = pd.read_csv(data_path)
 
 df['Order Date'] = pd.to_datetime(
     df['Order Date'],
