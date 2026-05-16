@@ -3,7 +3,7 @@ import pandas as pd
 import joblib
 
 
-model = joblib.load('sales_model.pkl')
+model = joblib.load('../models/sales_model.pkl')
 
 st.title("AI Sales Prediction")
 
