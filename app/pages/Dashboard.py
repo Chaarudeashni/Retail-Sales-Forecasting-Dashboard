@@ -104,8 +104,7 @@ df.to_sql(
     if_exists='replace',
     index=False
 )
-model = joblib.load(
-    r'sales_model.pkl'
+
 )
 
 st.markdown(
