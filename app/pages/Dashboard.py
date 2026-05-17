@@ -6,6 +6,12 @@ import sqlite3
 import joblib
 from pathlib import Path
 
+plt.rcParams['text.color'] = 'white'
+plt.rcParams['axes.labelcolor'] = 'white'
+plt.rcParams['xtick.color'] = 'white'
+plt.rcParams['ytick.color'] = 'white'
+plt.rcParams['axes.titlecolor'] = 'white'
+
 st.set_page_config(
     page_title="Advanced Retail Sales Dashboard",
     layout="wide"
