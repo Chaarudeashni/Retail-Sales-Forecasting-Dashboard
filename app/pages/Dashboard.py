@@ -85,7 +85,7 @@ html, body, [class*="css"]  {
 </style>
 """, unsafe_allow_html=True)
 
-df = pd.read_csv(data_path)
+
 
 df['Order Date'] = pd.to_datetime(
     df['Order Date'],
