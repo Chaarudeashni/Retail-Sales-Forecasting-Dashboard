@@ -104,9 +104,6 @@ df.to_sql(
     if_exists='replace',
     index=False
 )
-
-)
-
 st.markdown(
     '<p class="title">Retail Sales Forecasting Dashboard</p>',
     unsafe_allow_html=True
