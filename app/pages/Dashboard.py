@@ -10,9 +10,7 @@ st.set_page_config(
     page_title="Advanced Retail Sales Dashboard",
     layout="wide"
 )
-
-BASE_DIR = Path(__file__).resolve().parent.parent
-
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 data_path = BASE_DIR / "data" / "train.csv"
 
 model_path = BASE_DIR / "models" / "sales_model.pkl"
